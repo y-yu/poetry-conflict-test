@@ -13,3 +13,7 @@ But it will success when `rm poetry.lock` before `poetry install`🤔🤔🤔
 ## Example Result
 
 - https://github.com/y-yu/poetry-conflict-test/actions/runs/5236988803
+
+## See also
+
+- [`poetry install` hangs when duplicate http git dependencies use both rev and tag `#7497`](https://github.com/python-poetry/poetry/issues/7497)
