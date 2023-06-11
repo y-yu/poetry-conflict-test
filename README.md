@@ -12,4 +12,4 @@ But it will success when `rm poetry.lock` before `poetry install`🤔🤔🤔
 
 ## Example Result
 
-- https://github.com/y-yu/poetry-conflict-test/actions/runs/5236927882/jobs/9454779378
+- https://github.com/y-yu/poetry-conflict-test/actions/runs/5236988803
