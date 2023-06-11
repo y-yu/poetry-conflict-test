@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "poetry-conflict-test"
+version = "0.0.1"
+description = ""
+authors = ["YOSHIMURA Hikaru <yyu@mental.poker>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "poetry-conflict-test"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9.8,<3.12"
+quri-parts-qulacs = { git = "https://github.com/QunaSys/quri-parts.git", rev = "3b05ea12dede01b9bea70b0fbecb246ca3167639", subdirectory = "packages/qulacs" }
+quri-parts-qiskit = { git = "https://github.com/QunaSys/quri-parts.git", rev = "3b05ea12dede01b9bea70b0fbecb246ca3167639", subdirectory = "packages/qiskit" }
+quri-parts-stim = { git = "https://github.com/QunaSys/quri-parts.git", rev = "3b05ea12dede01b9bea70b0fbecb246ca3167639", subdirectory = "packages/stim" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

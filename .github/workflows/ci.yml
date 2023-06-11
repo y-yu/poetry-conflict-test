@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ "ubuntu-latest", "macos-latest" ]
+        poetry-version: [ "1.5.1" ]
+        is-system-git-client: [ "true", "false" ]
+        is-remove-poetry-lock: [ true, false ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Poetry
+        env:
+          POETRY_VERSION: ${{ matrix.poetry-version }}
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Remove poetry.lock
+        run: rm poetry.lock
+        if:  ${{ matrix.is-remove-poetry-lock }}
+
+      - name: Install
+        run: |
+          poetry config experimental.system-git-client ${{ matrix.is-system-git-client }}
+          poetry install -vvv
